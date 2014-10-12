@@ -52,6 +52,11 @@
 				_styleSheetsArr.push('main.mobile');
 			}
 		}
+
+		if( Juggernaut.client.ltIE9 ){
+			_styleSheetsArr.push('main.noresp');
+			_styleSheetsArr.push('main.export_ie8');
+		}
 	}
 	_init();
 })();
