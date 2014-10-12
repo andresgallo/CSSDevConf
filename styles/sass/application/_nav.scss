@@ -1,0 +1,39 @@
+nav {
+	background: #000;
+	&:hover {
+		content: 'hover';
+	}
+	ul {
+		display: block;
+		width: 100%;
+		max-width: $l-grid + px;
+		margin: 0 auto;padding: 0;
+	}
+	li {//DONT NEST UNLESS THERE ARE OL TAGS AS WELL
+		display: inline-block;
+		color: #fff;
+		height: 40px;
+		vertical-align: middle;
+		box-sizing: border-box;
+		&:not(:first-child){
+			padding: 20px;
+		}
+		@include media($s-grid){
+			height: 70px;
+			&:hover {
+				position: relative;
+				cursor: pointer;
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;left: 0;right: 0;bottom: 0;
+					background: rgba(255,0,0,.5);
+				}
+			}
+		}
+	}
+	#logo {//ITS AN ID...DONT NEST UNLESS THERE IS A REASON
+		height: 100%;
+		width: auto;
+	}
+}

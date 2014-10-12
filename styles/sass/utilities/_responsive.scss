@@ -1,0 +1,100 @@
+//MEDIA
+
+//Global Media params
+$media_nonresponsiveSel: '.notresponsive';
+$media_responsiveSel: '.responsive';
+$media_htmlSel: 'html';
+$media_sel: '&';
+
+// Use this mixin for styles that are already scoped within a selector. Otherwise, use media-baseline.
+@mixin media($min:0, $max:null, $attachSelector: ''){
+  $media_sel: ' &';
+  $media_nonresponsiveSel: '.notresponsive'+$attachSelector;
+  $media_responsiveSel: '.responsive'+$attachSelector;
+  $media_htmlSel: 'html'+$attachSelector;
+  @include mediaBuilder($min, $max){
+    @content;
+  }
+}
+
+// Use this mixin for baseline styles (not scoped within a selector).
+@mixin media-baseline($min:0, $max:null, $attachSelector: '') {
+  $media_sel: '';
+  $media_nonresponsiveSel: '.notresponsive'+$attachSelector;
+  $media_responsiveSel: '.responsive'+$attachSelector;
+  $media_htmlSel: 'html'+$attachSelector;
+  @include mediaBuilder($min, $max){
+    @content;
+  }
+}
+
+// Use this mixin for styles that are already scoped within a selector. Otherwise, use media-baseline.
+@mixin qmediaq($min:0, $max:null, $attachSelector: ''){
+  $media_sel: ' &';
+  $media_nonresponsiveSel: '.notresponsive'+$attachSelector;
+  $media_responsiveSel: '.responsive'+$attachSelector;
+  $media_htmlSel: 'html'+$attachSelector;
+  @include mediaBuilder($min, $max){
+    @content;
+  }
+}
+
+// Use this mixin for baseline styles (not scoped within a selector).
+@mixin qmediaq-baseline($min:0, $max:null, $attachSelector: '') {
+  $media_sel: '';
+  $media_nonresponsiveSel: '.notresponsive'+$attachSelector;
+  $media_responsiveSel: '.responsive'+$attachSelector;
+  $media_htmlSel: 'html'+$attachSelector;
+  @include mediaBuilder($min, $max){
+    @content;
+  }
+}
+
+// ABSTRACT
+@mixin mediaBuilder($min:0, $max:null){
+  // If this is a default style for non-responsive, output this for IE8 and non-responsive pages, not wrapped in a
+  // media query.
+  // For now, we're just assuming that default is the full-width style. So, if a max is NOT defined,
+  // it is a full-width style and thus a default.
+
+  @if $max == null{
+    #{$media_nonresponsiveSel} #{$media_sel} {
+      @content;
+    }
+
+    @media only screen and (min-width:#{$min}px){
+      #{$media_htmlSel} #{$media_sel}{
+        @content;
+      }
+    }
+
+  } @else {
+
+    @media only screen and (min-width:#{$min}px) and (max-width:#{$max}px) {
+      #{$media_responsiveSel} #{$media_sel}{
+        @content;
+      }
+    }
+
+  }
+}
+
+//MEDIA PLAIN
+// Use this mixin if you just want a plain media query mixin, and don't want the advanced helper features such as using
+// .responsive, .non-responsive, and .lt-ie9 scoping. Use very carefully!
+@mixin media-plain($min:0, $max:null) {
+
+  @if $max == null {
+
+    @media only screen and (min-width:#{$min}px){
+      @content;
+    }
+
+  } @else {
+
+    @media only screen and (min-width:#{$min}px) and (max-width:#{$max}px) {
+      @content;
+    }
+
+  }
+}

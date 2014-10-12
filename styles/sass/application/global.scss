@@ -1,0 +1,8 @@
+html {
+	background: #12331d;
+	font-family: sans-serif;
+}
+
+@include media-baseline($s-grid){
+	background: url('http://img.lum.dolimg.com/v1/images/CHRNAV-bg_de4b5a2c.jpeg') repeat;
+}

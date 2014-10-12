@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+# this script will run sass on watch or update mode for each of the files on the watch list
+# and include any plugin libraries defined in the watch list. 
+# @author Eddy Nunez <enunez@marvel.com>
+# @version $Id$
+
+MODES = ['--watch', '--update']
+if ARGV.empty? || !MODES.include?(ARGV[0]) then
+    puts "Usage: #{$0} [--watch|--update]"
+    puts "--watch  : update and watch for changes\n--update : update and exit"
+    exit
+end
+
+require 'fileutils'
+require 'yaml'
+
+ROOT       = File.expand_path( File.dirname( __FILE__ ) )
+DOC_ROOT   = ROOT.match(/(.*sass).*/)[1]
+SASS_ROOT  = DOC_ROOT
+yaml_files = Dir[SASS_ROOT+'/watch_lists/*.yaml']
+sass_mode  = ARGV[0]
+configs    = {}
+
+yaml_files.each do |yf|
+    YAML.load_file(yf).each { |k,list|
+        configs[k.to_sym] ||= []
+        configs[k.to_sym].concat list
+    }
+end
+configs.each { |k,v| v.uniq! if v.respond_to? :uniq! } # ensure uniqueness
+
+# require 'pp'; pp configs; exit
+
+args = {
+    :watchers => configs[:watch_list].map { |w| "#{sass_mode} #{w} " },
+    :requires => configs[:libraries].map { |r| "-r #{r} " }
+}.freeze
+
+# touch the files to force sass to generate on start
+configs[:watch_list].each do |watch|
+    file = File.basename(watch.split(':').first)
+    FileUtils.touch( [SASS_ROOT,file].join('/') )
+end
+
+Dir.chdir SASS_ROOT
+exec_cmd = 'sass '+ args[:requires].join + args[:watchers].join
+puts exec_cmd
+exec exec_cmd

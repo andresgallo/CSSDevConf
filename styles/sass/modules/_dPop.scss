@@ -1,0 +1,120 @@
+/* =============================================================================
+   Overlays
+   ========================================================================== */
+#overlayRelativer {
+	position: absolute;
+	text-align: center;
+}
+
+._DPOP_mask{
+	position: fixed;
+}
+
+#overlayRelativer,
+._DPOP_mask {
+	top:0;left:0;
+	width:100%;
+	z-index:999999999;}
+	
+._DPOP_mask {
+	background-color: rgba(0,0,0,.8);
+	background-image: url(../images/juggernaut/patternDarkLine.png); 
+	backgorund-repeat: repeat;
+	height: 100%;}
+	
+#overlayRelativer	 {
+	overflow:visible;}
+	
+._DPOP_window {
+	background:#fff;
+	margin:0 auto;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left:0;right:0;top: 40px;
+	position:relative;
+}
+	
+/***************************
+DEFAULTS VIEW STATES
+****************************/
+#overlayRelativer {
+	height:0;
+	
+}
+	
+._DPOP_window {
+	display:block;
+	-webkit-backface-visibility: hidden;
+	box-shadow:0 0 11px #000;
+	text-align: left;
+}
+
+._DPOP_mask,{
+	display: none;
+}
+
+
+/***************************
+DYNAMIC VIEW STATES
+****************************/	
+._DPOP_hasMask {
+    height: 100%;
+}
+
+._DPOP_hasMask._DPOP_mask{
+	display: block;
+}
+
+.dPop_isFixed {
+	width: 100%;
+	position: fixed;
+}
+
+	
+/***************************
+WINDOW STATES & ANIMATIONS
+****************************/
+.bringDPopUpIn ._DPOP_window {
+	display: block;
+}
+.bringDPopUpOut ._DPOP_window {
+	display: none;
+}
+
+/***************************
+MARVEL STYLING - Juggernaut UI
+***************************/
+.dPopClose {
+	width:auto;height:auto;position:absolute;
+	right: 0;top: -19px;
+	background: $marvelRed;
+	text-align: center;
+	line-height: 1em;}
+	
+._DPOP_window {
+	background: #2B2B2B;
+	color: #fff;
+	
+	&:before {
+		content: '';
+		width: 100%;
+		background-color: $marvelRed;
+		height: 8px;
+		display: block;
+		border-bottom: solid 1px #000;
+	}
+	
+	.dPopClose {
+		.icon-close {
+		    color: #fff;
+		    font-size: 26px;
+		    font-weight: bold;
+		    display: inline;	
+		}
+	}
+}
+
+
+

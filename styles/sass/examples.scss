@@ -1,0 +1,20 @@
+@import "utilities/defines";
+
+//Explicity notresponsive class
+.notresponsive {
+	content: 'not responsive';
+}
+
+
+
+test {
+	//mobile view
+	@include media(0, $s-grid - 1){
+		content: 'its small so it is rendered in every device';
+	}
+
+	//mobile view
+	@include media(0, $m-grid - 1){
+		content: 'show in mobile view as well as larger touch devices';
+	}
+}

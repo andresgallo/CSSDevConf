@@ -1,0 +1,168 @@
+//	Crossbrowser simplify css mixins
+=skew($x: null, $y: null, $reverseChild: null)
+	$x: -11 !default
+	$y: 0 !default
+	$reverseChild: 1 !default
+
+	-webkit-transform: skew($x+deg, $y+deg)
+	//-moz-transform: skew($x+deg, $y+deg)
+	-ms-transform: skew($x+deg, $y+deg)
+	transform: skew($x+deg, $y+deg)
+	//-o-transform: skew($x+deg, $y+deg)
+
+	@if $reverseChild == 1
+		*:first-child
+			display: block
+			$x: $x*-1
+			$y: $y*-1
+			-webkit-transform: skew($x+deg, $y+deg)
+			//-moz-transform: skew($x+deg, $y+deg)
+			transform: skew($x+deg, $y+deg)
+			//-ms-transform: skew($x+deg, $y+deg)
+			//-o-transform: skew($x+deg, $y+deg)
+
+=translate($x, $y)
+	$x: 0 !default
+	$y: 0 !default
+	-webkit-transform: translate($x,$y)
+	//-moz-transform: translate($x,$y)
+	-ms-transform: translate($x,$y)
+	transform: translate($x,$y)
+	//-o-transform: translate($x,$y)
+
+=translateX($x)
+	$x: 0 !default
+	-webkit-transform: translateX($x)
+	//-moz-transform: translateX($x)
+	-ms-transform: translateX($x)
+	transform: translateX($x)
+	//-o-transform: translateX($x)
+
+=translateY($y)
+	$y: 0 !default
+	-webkit-transform: translateY($y)
+	//-moz-transform: translateY($y)
+	-ms-transform: translateY($y)
+	transform: translateY($y)
+	//-o-transform: translateY($y)
+
+=rotate($degrees)
+	-webkit-transform: rotate(#{$degrees}deg)
+	//-moz-transform: rotate(#{$degrees}deg)
+	-ms-transform: rotate(#{$degrees}deg)
+	//-o-transform: rotate(#{$degrees}deg)
+	transform: rotate(#{$degrees}deg)
+
+	@if $IE < 10
+		$pi: 3.1415926535897
+		$radians: $degrees * $pi / 180
+
+		$x: $radians
+
+		filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})"
+		zoom: 1
+
+=transform($type, $argA: null, $argB: null, $argC: null, $argD: null, $argE: null)
+	color: $argA
+	@if $type == skew
+		+skew($argA, $argB)
+	@else if $type == translate
+		+translate($argA, $argB)
+	@else if $type == translateX
+		+translateX($argA)
+	@else if $type == translateY
+		+translate($argA)
+
+=transition($prop: all,$pace: 300ms,$transitionType: ease)
+	-webkit-transition: $prop $pace $transitionType
+	//-moz-transition: $prop $pace $transitionType
+	//-o-transition: $prop $pace $transitionType
+	transition: $prop $pace $transitionType
+
+=box-shadow($val...)
+	-webkit-box-shadow: $val
+	//-moz-box-shadow: $val
+	box-shadow: $val
+
+=box-sizing($val)
+	-webkit-box-sizing: $val
+	-moz-box-sizing: $val
+	box-sizing: $val
+
+=backface-visibility($val)
+	-webkit-backface-visibility: $val
+	//-moz-backface-visibility: $val
+	-ms-backface-visibility: $val
+	backface-visibility: $val
+	
+=column($count: null, $gap: null)
+	$count: 2 !default
+	-moz-column-count: $count
+	-webkit-column-count: $count
+	column-count: $count
+	@if $gap != null
+		-moz-column-gap: $gap + px
+		-webkit-column-gap: $gap + px
+		column-gap: $gap + px
+
+=opacity($val)
+	opacity: $val
+	@if $IE < 9
+		.lt-ie9 &
+			$val : $val*100
+			-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$val})'
+			filter: alpha(opacity=$val)
+
+=background-size ($bg-size-1, $bg-size-2: null)
+	@if $bg-size-2 == null
+		$bg-size-2: $bg-size-1
+	background-size: $bg-size-1 $bg-size-2
+
+=keyframes($name)
+	@-webkit-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content
+
+=linearGradient($color1, $color2)
+	background-color: $color1
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$color1}, endColorstr=#{$color2})
+	background-image: -moz-linear-gradient(top, $color1, $color2)
+	//background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2))
+	//background-image: -webkit-gradient(linear, left top, left bottom, from($color1), to($color2))
+	background-image: -webkit-linear-gradient(top, $color1, $color2)
+	//background-image: -o-linear-gradient(top, $color1, $color2)
+	background-image: linear-gradient(to bottom, $color1, $color2)
+
+=hyphens($val)
+	-webkit-hyphens: $val
+	-moz-hyphens: $val
+	-ms-hyphens: $val
+	hyphens: $val
+
+=lineBreak
+	white-space: pre //CSS 2.0
+	white-space: pre-wrap //CSS 2.1
+	white-space: pre-line //CSS 3.0
+	white-space: -moz-pre-wrap //Mozilla
+	white-space: -hp-pre-wrap //HP Printers
+	word-wrap: break-word //IE 5+
+
+=inlineBlock
+	display: inline-block
+
+=ieEmptyAnchorHelper
+	@if $IE < 9
+		background:
+			image: url('../images/juggernaut/no-image.gif')
+		text-indent: -9999px
+
+=marvelSkew
+	+skew(-11, 0)
+
+//after clearer
+=clearAfter
+	content: ''
+	display: block
+	clear: both

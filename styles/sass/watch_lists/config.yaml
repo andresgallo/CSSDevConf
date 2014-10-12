@@ -1,0 +1,5 @@
+
+# Sass plugins using relative paths
+libraries:
+  - 'lib/exporter.rb'
+  - 'lib/cssVariants.rb'

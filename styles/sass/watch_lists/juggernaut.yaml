@@ -1,0 +1,4 @@
+watch_list:
+  - 'main.scss:../main.css'
+  - 'examples.scss:../examples.css'
+

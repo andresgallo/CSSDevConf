@@ -1,0 +1,29 @@
+@include media-baseline($s-grid){
+    #fist {
+        width: 340px;
+        height: 306px;
+        position: fixed;
+        right: -600px;
+        top: 120px;
+        background: url('../images/fist.png');
+        -webkit-animation: fist 5s; /* Chrome, Safari, Opera */
+        animation: fist 5s;
+    }
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fist {
+    0%   {right: -600px;}
+    60%  {right: -400px;}
+    80%  {right: -20px;}
+    92% {right: -50px;}
+    100% {right: -600px;}
+}
+
+/* Standard syntax */
+@keyframes fist {
+     0%   {right: -600px;}
+    60%  {right: -400px;}
+    80%  {right: -20px;}
+    92% {right: -50px;}
+    100% {right: -600px;}
+}

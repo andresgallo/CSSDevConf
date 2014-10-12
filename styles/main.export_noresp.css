@@ -1,0 +1,51 @@
+
+.notresponsive {
+  background: url("http://img.lum.dolimg.com/v1/images/CHRNAV-bg_de4b5a2c.jpeg") repeat; }
+
+.notresponsive ._mediaOvSm-block {
+display: block !important; }
+.notresponsive ._mediaOvSm-inblock {
+display: inline-block !important; }
+
+.notresponsive ._mediaOvMd-block {
+display: block !important; }
+.notresponsive ._mediaOvMd-inblock {
+display: inline-block !important; }
+
+.notresponsive ._mediaOvLg-block {
+display: block !important; }
+.notresponsive ._mediaOvLg-inblock {
+display: inline-block !important; }
+
+.notresponsive section:before {
+      font-size: 30px;
+      margin-left: -200px;
+      content: url("../images/bg_lg.png") " LARGE_VIEW"; }
+
+.notresponsive section {
+    padding: 80px; }
+
+.notresponsive nav li {
+      height: 70px; }
+      .notresponsive nav li:hover {
+position: relative;
+        cursor: pointer; }
+        .notresponsive nav li:hover:before {
+content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(255, 0, 0, 0.5); }
+
+.notresponsive #fist {
+  width: 340px;
+  height: 306px;
+  position: fixed;
+  right: -600px;
+  top: 120px;
+  background: url("../images/fist.png");
+  -webkit-animation: fist 5s;
+  /* Chrome, Safari, Opera */
+  animation: fist 5s; }
