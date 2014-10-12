@@ -32,7 +32,7 @@
 			link.href = 'styles/'+_styleSheetsArr.shift()+'.css';
 			frag.appendChild(link);
 		}
-		document.getElementsByTagName('head')[0].appendChild(frag);
+		document.getElementsByTagName('head')[0].appendChild(frag); 
 	}
 
 	/**
