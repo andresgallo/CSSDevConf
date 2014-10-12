@@ -1,2 +1,3 @@
-.notresponsive {
-content: 'not responsive'; }
+
+.notresponsive test {
+    content: 'device is larger than 1px'; }

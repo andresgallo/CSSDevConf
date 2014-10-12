@@ -1,2 +1,7 @@
-.notresponsive {
-  content: 'not responsive'; }
+test {
+  content: 'all devices'; }
+  .notresponsive test {
+    content: 'device is larger than 1px'; }
+
+test:hover {
+  content: 'not touch'; }

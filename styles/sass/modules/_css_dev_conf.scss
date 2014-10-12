@@ -1,0 +1,25 @@
+.css_dev_conf {
+	background: rgba(255,255,255,.1);
+	&:before {
+		float: left;
+		color: $marvelRed;
+		vertical-align: top;
+		font-family: 'tradeGothicBold';
+		font-style: italic;
+		@include media($min: 0, $max: 569){
+			content: url('../images/bg_sm.jpeg') " SMALL_VIEW_.css_dev_conf";
+		}
+		@include media($min: 570, $max: 767){
+			content: url('../images/bg_sm.jpeg') " MEDIUM_VIEW.css_dev_conf";
+		}
+		@include media($min: 767){
+			font-size: 30px;
+			margin-left: -200px;
+			content: url('../images/bg_lg.png') " LARGE_VIEW.css_dev_conf";
+		}
+	}
+}
+
+
+
+

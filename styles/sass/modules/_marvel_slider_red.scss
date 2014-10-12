@@ -1,0 +1,80 @@
+
+/**
+ * This file contains the standard variations for pwrSldr
+ */
+
+.JCS1 {
+	opacity: 1 !important;
+	$gutter: 24px;
+	ul {
+		padding: 0;
+		margin-left: ($gutter * -1) !important;
+	}
+	li {
+		& > a {
+			display: block;
+			padding-left: $gutter;
+		}
+	}
+
+	&.pwrSldr_scrollable {
+		.pwrSldr {
+			&:before, &:after {
+				content: '';
+				height: 114%;
+				width: 20px;
+				display: block;
+				position: absolute;
+				right: 0;
+				top: -10%;
+				z-index: 5;
+			}
+		}
+	}
+}
+
+////////////////
+//RESPONSIVE //
+////////////////
+@include media-baseline($min: 0, $max: 360){
+	.JCS1 li {
+		max-width: 220px;
+	}
+}
+
+@include media-baseline($min: 361, $max: $s-grid - 1){
+	.JCS1 li {
+		max-width: 270px;
+	}
+}
+
+@include media-baseline($min: 0, $max: $s-grid - 1, $attachSelector: '.device_NOT_HASTOUCH'){
+	.JCS1 {
+		._prev  {
+			display: none;
+		}
+		._next {
+			right: -20px;
+		}
+		$padRgt: 30px;
+		padding-right: $padRgt;
+		.pwrSldr:before, .pwrSldr:after {
+			right: $padRgt;
+		}
+		.pwrSldr_btn _next {
+			right: 0;
+		}
+	}
+}
+
+.pwrSldr_btn span {
+	background: red;
+}
+
+li.col {
+	padding-right: 20px;
+	img {
+		border: solid 2px #000;
+	}
+}
+

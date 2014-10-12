@@ -1,9 +1,13 @@
-.notresponsive {
-  content: 'not responsive'; }
+test {
+  content: 'all devices'; }
+  .notresponsive test {
+    content: 'device is larger than 1px'; }
+  @media only screen and (min-width: 800px) {
+    html test {
+      content: 'device is larger than 1px'; } }
 
-@media only screen and (min-width: 0px) and (max-width: 569px) {
-  .responsive test {
-    content: 'its small so it is rendered in every device'; } }
-@media only screen and (min-width: 0px) and (max-width: 799px) {
-  .responsive test {
-    content: 'show in mobile view as well as larger touch devices'; } }
+test:hover {
+  content: 'not touch'; }
+
+.lt-ie9 {
+  content: 'IE'; }

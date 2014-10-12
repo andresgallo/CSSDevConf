@@ -19,7 +19,8 @@ nav {
 			padding: 20px;
 		}
 		@include media($s-grid){
-			height: 70px;
+			$h: 70px;
+			height: $h;
 			&:hover {
 				position: relative;
 				cursor: pointer;
@@ -30,10 +31,25 @@ nav {
 					background: rgba(255,0,0,.5);
 				}
 			}
+			.icon-marvel-logo {//ITS AN ID...DONT NEST UNLESS THERE IS A REASON
+				font-size: $h;
+				line-height: 100%;
+				box-shadow: 0px 3px 0px #c40d15;
+				display: inline-block;
+				overflow: hidden;
+				zoom: 1;
+				height: $h - 2px;
+			}
 		}
 	}
-	#logo {//ITS AN ID...DONT NEST UNLESS THERE IS A REASON
-		height: 100%;
-		width: auto;
+	.icon-marvel-logo {//ITS AN ID...DONT NEST UNLESS THERE IS A REASON
+		$h: 40px;
+		font-size: $h;
+		line-height: 100%;
+		box-shadow: 0px 3px 0px #c40d15;
+		display: inline-block;
+		overflow: hidden;
+		height: $h - 2px;
+		position: relative;
 	}
 }

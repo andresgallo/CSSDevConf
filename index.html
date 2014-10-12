@@ -4,33 +4,82 @@
 <!--[if (gt IE 9)|(!IE)]><!-->
 <html class="no-js responsive" version="HTML+RDFa 1.1" lang="us">
 <!--<![endif]-->
+
+
+
+
   <head>
     <meta charset="utf-8">
     <title>CSSDevConf</title>
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <link rel="shortcut icon" href="/favicon.ico">
 
+    <script src="scripts/jQuery.js"></script>
+    <script src="scripts/juggernaut.js"></script>  
     <script src="scripts/modernizr.js"></script>
     <script src="scripts/headscripts.js"></script>
   </head>
+
+
   <body>
 
+
+
+
+    <!--NAV-->
     <nav>
       <ul>
-        <li><img id="logo" src="http://a.dilcdn.com/m/marvel/marvel-46d15d2ed140.svg" /></li>
+        <li><a href="/" class="icon-marvel-logo"></a></li>
         <li onclick="fakeppt.open();">Show Slides</li>
       </ul>
     </nav>
 
-    <section>
+
+
+
+    <!--LARGE MODULE-->
+    <section class="css_dev_conf">
       <!--In the real application we'd put content here-->
     </section>
 
 
-    <script src="scripts/jQuery.js"></script>
-    <script src="scripts/juggernaut.js"></script>    
+
+
+
+    <!--SLIDER MODULE-->
+    <section>
+      <h1>.marvel_slider</h1>
+      <div class="pwrSldr_container {{jcs1}} {{# jcs1 }}JCS1-{{type}}{{/ jcs1 }} {{^ jcs1 }}slider-{{type}}{{/ jcs1 }}" id="pwrSldr_container_{{rpp}}">
+        <a href="#" class="pwrSldr_btn _prev"><span></span></a>
+        <a href="#" class="pwrSldr_btn _next"><span></span></a>
+        <div class="pwrSldr_wrapper">
+            <div class="pwrSldr">
+                 <ul>
+              <li class="col"><img src="http://i.annihil.us/u/prod/marvel/i/mg/9/40/543597babe4a3/landscape_xlarge.jpg" /></li>
+              <li class="col"><img src="http://i.annihil.us/u/prod/marvel/i/mg/9/e0/54359b3ec57fd/landscape_xlarge.jpg" /></li>
+              <li class="col"><img src="http://x.annihil.us/u/prod/marvel/i/mg/9/60/5436d7bcf02d7/landscape_xlarge.jpg" /></li>
+              <li class="col"><img src="http://i.annihil.us/u/prod/marvel/i/mg/9/40/543597babe4a3/landscape_xlarge.jpg" /></li>
+              <li class="col"><img src="http://i.annihil.us/u/prod/marvel/i/mg/9/e0/54359b3ec57fd/landscape_xlarge.jpg" /></li>
+              <li class="col"><img src="http://x.annihil.us/u/prod/marvel/i/mg/9/60/5436d7bcf02d7/landscape_xlarge.jpg" /></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+    </section>
+
+
+
+
+
+
+    <!--In a real scenario these would be concatenated and minified using some kind of asset pipeline. -->
     <script src="scripts/dPop.js"></script>
+    <script src="scripts/marvel_slider.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 </html>

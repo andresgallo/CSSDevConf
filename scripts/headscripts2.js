@@ -49,17 +49,17 @@
 		var bkPoints = [570, 768, 1024],
 			sw = screen.width;
 		if( !Modernizr.touch) {//Non touched are assumed desktop. In theory we could make more scenarios to be more granular
-			_styleSheetsArr.push('main.notouch');
+			_styleSheetsArr.push('examples.notouch');
 		}else {
 			if(sw < bkPoints[0]){
-				_styleSheetsArr.push('main.mobile-small');
+				_styleSheetsArr.push('examples.mobile-small');
 			}else {
-				_styleSheetsArr.push('main.mobile');
+				_styleSheetsArr.push('examples.mobile');
 			}
 		}
 		if( Juggernaut.client.ltIE9 ){
-			_styleSheetsArr.push('main.noresp');
-			_styleSheetsArr.push('main.export_ie8');
+			_styleSheetsArr.push('examples.noresp');
+			_styleSheetsArr.push('examples.export_ie8');
 		}
 	}
 	_init();

@@ -1,20 +1,18 @@
 @import "utilities/defines";
-
 //Explicity notresponsive class
-.notresponsive {
-	content: 'not responsive';
-}
-
-
-
 test {
-	//mobile view
-	@include media(0, $s-grid - 1){
-		content: 'its small so it is rendered in every device';
-	}
+	content: 'all devices';
 
-	//mobile view
-	@include media(0, $m-grid - 1){
-		content: 'show in mobile view as well as larger touch devices';
+	@include media( 800 ){
+		content: 'device is larger than 1px';
 	}
 }
+
+test:hover {
+	content: 'not touch';
+}
+
+.lt-ie9 {
+	content: 'IE';
+}
+

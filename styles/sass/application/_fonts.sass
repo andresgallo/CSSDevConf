@@ -1,0 +1,33 @@
+$fontPath: "https://i.annihil.us/u/prod/marvel/s/font/"
+
+=fontPaths($path: null, $font: null)
+	//Default path has the proper headers to speedup font rendering on front end
+	$path: "https://i.annihil.us/u/prod/marvel/s/font/" !default
+	//$path: "../font/" !default
+
+	$fullPath : $path+$font+"."
+	src: url('#{$fullPath}eot')
+	src: url('#{$fullPath}eot?#iefix') format('embedded-opentype'), url('#{$fullPath}woff') format('woff'), url('#{$fullPath}ttf') format('truetype'), url('#{$fullPath}svg#RobotoBold') format('svg')
+
+// DO NO REMOVE. THIS IS USED FOR TRACKING.
+
+//@import url("//fast.fonts.com/t/1.css?apiType=css&projectid=47931f26-fd71-421d-a51a-6f38c383ae3b")
+@font-face
+	font-family: "TradeGothicBold"
+	src: url("#{$fontPath}2e9af08f-0faf-45e3-9767-78a700434af3.eot?#iefix")
+	src: url("#{$fontPath}2e9af08f-0faf-45e3-9767-78a700434af3.eot?#iefix") format("eot"),url("#{$fontPath}f51d24dd-8256-43c6-ba1a-6aeae9d3f262.woff") format("woff"),url("#{$fontPath}955ee494-66b2-4eb2-8f19-bc3a088df16d.ttf") format("truetype"),url("#{$fontPath}d5153ad4-7c93-4757-9147-640e69ec4801.svg#d5153ad4-7c93-4757-9147-640e69ec4801") format("svg")
+
+@font-face
+	font-family: "TradeGothicBoldTwo"
+	src: url("#{$fontPath}bb3aa0a7-2585-4e89-ad82-658fd561751a.eot?#iefix")
+	src: url("#{$fontPath}bb3aa0a7-2585-4e89-ad82-658fd561751a.eot?#iefix") format("eot"),url("#{$fontPath}1454a71d-cdbb-429c-8092-122f4493e0c7.woff") format("woff"),url("#{$fontPath}d5ea405c-2180-4ff0-bd51-3e19fb280be4.ttf") format("truetype"),url("#{$fontPath}70ac6679-cf48-4a0e-a909-d1e3bb4a1aa9.svg#70ac6679-cf48-4a0e-a909-d1e3bb4a1aa9") format("svg")
+
+@font-face
+	font-family: "TradeGothicCondensed"
+	src: url("#{$fontPath}087e5c21-3358-4cf3-9d2c-289a03a48292.eot?#iefix")
+	src: url("#{$fontPath}087e5c21-3358-4cf3-9d2c-289a03a48292.eot?#iefix") format("eot"),url("#{$fontPath}fb754dec-aa8f-444c-be48-868464c47ab0.woff") format("woff"),url("#{$fontPath}295ff20c-2b48-4fa6-be92-a53bbf9bbbb4.ttf") format("truetype"),url("#{$fontPath}c573d9d0-0726-4b95-aeee-fb621a299563.svg#c573d9d0-0726-4b95-aeee-fb621a299563") format("svg")
+
+@font-face
+	font-family: "TradeGothic"
+	src: url("#{$fontPath}413d9688-00d4-47c4-bb55-656a0cd396e9.eot?#iefix")
+	src: url("#{$fontPath}413d9688-00d4-47c4-bb55-656a0cd396e9.eot?#iefix") format("eot"),url("#{$fontPath}c4aef0d4-bfcf-4790-acf5-909881f411e8.woff") format("woff"),url("#{$fontPath}e741f29c-bc18-4343-bff3-db2465a0be3e.ttf") format("truetype"),url("#{$fontPath}853e2a9b-4057-42a5-ad7e-0762cda0b13c.svg#853e2a9b-4057-42a5-ad7e-0762cda0b13c") format("svg")

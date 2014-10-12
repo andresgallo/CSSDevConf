@@ -1,3 +1,5 @@
+if(!Array.prototype.indexOf){Array.prototype.indexOf=function(e,t){var n;if(this==null){throw new TypeError('"this" is null or not defined')}var r=Object(this);var i=r.length>>>0;if(i===0){return-1}var s=+t||0;if(Math.abs(s)===Infinity){s=0}if(s>=i){return-1}n=Math.max(s>=0?s:i-Math.abs(s),0);while(n<i){var o;if(n in r&&r[n]===e){return n}n++}return-1}}
+
 var DPOP = function(props){
     "use strict";
     props = props || {};
@@ -5,10 +7,10 @@ var DPOP = function(props){
 
     this._private = {
     	instanceName: props.instanceName,
-		popupId 	: props.popupId || props.instanceName+"Win",//cssId
-		popup 		: null,//Dynamic
-		popup_wrap 	: null,//Dynamic
-		props 		: {}, //properties
+    	popupId 	: (props.popupId || props.instanceName+"Win"),
+    	popup 		: null,
+		popup_wrap 	: null,
+		props 		: {} 
 	};
 
 	//Defer until body is accessible
@@ -256,7 +258,7 @@ DPOP.prototype = (function($, dox){
 			}else {
 				cssObj = {
 					position: 'absolute',
-					top: _scrollPos().y+'px',
+					top: _scrollPos().y + 30 +'px'
 				};
 				$popup.removeClass('dPop_isFixed');
 				$popup.css(cssObj);
@@ -286,6 +288,9 @@ DPOP.prototype = (function($, dox){
 		_init 	: _init
 	};
 })(jQuery, document);
+
+
+
 
 
 ///////////////////

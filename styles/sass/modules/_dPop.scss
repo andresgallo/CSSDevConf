@@ -17,8 +17,7 @@
 	z-index:999999999;}
 	
 ._DPOP_mask {
-	background-color: rgba(0,0,0,.8);
-	background-image: url(../images/juggernaut/patternDarkLine.png); 
+	background-color: rgba(0,0,0,.65);
 	backgorund-repeat: repeat;
 	height: 100%;}
 	
@@ -46,7 +45,6 @@ DEFAULTS VIEW STATES
 	
 ._DPOP_window {
 	display:block;
-	-webkit-backface-visibility: hidden;
 	box-shadow:0 0 11px #000;
 	text-align: left;
 }
@@ -78,6 +76,9 @@ WINDOW STATES & ANIMATIONS
 ****************************/
 .bringDPopUpIn ._DPOP_window {
 	display: block;
+	-webkit-animation: scaleIn 2s; /* Chrome, Safari, Opera */
+    -moz-animation: scaleIn 2s;
+    animation: scaleIn 2s;
 }
 .bringDPopUpOut ._DPOP_window {
 	display: none;

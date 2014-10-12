@@ -1,7 +1,28 @@
 html {
 	background: #12331d;
-	font-family: sans-serif;
+	font-family: 'TradeGothic';
 }
+
+
+section, nav {
+	display: block;
+	width: 100%;
+}
+section {
+	@include media($l-grid){
+		min-width: 1024px;
+	}
+}
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1.15em;
+	margin: 0;
+}
+
+h1,h2,h3,h4 {
+	font-family: 'TradeGothicBold';
+}
+
+
 
 @include media-baseline($s-grid){
 	background: url('http://img.lum.dolimg.com/v1/images/CHRNAV-bg_de4b5a2c.jpeg') repeat;

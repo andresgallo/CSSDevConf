@@ -1,0 +1,190 @@
+/*
+ * PwrSldr Base Sass
+ * This is the CSS for the slider. Any code in here should be completely independent from any application specific
+ * code. It is entirely up to the user to style the contents that are put in .sld_each div, and to customize the
+ * appearance of the slider itself, including arrows, etc, if desired. That customization code should go in a
+ * different file that can override or extend these rules.
+ *
+*/
+
+.pwrSldr{
+  overflow:auto;
+  -webkit-overflow-scrolling: touch; //support for native iOS touch scrolling with momentum
+
+  .device_ISANDROID &{
+    -webkit-overflow-scrolling: auto;
+  }
+
+  // for Hammer.js carousel
+  &.paginate-scroll{
+    -webkit-overflow-scrolling: auto;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    width:100%;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-transform-style: preserve-3d;
+    ul{
+      transform: translate3d(0%,0,0);
+      -ms-transform: translate3d(0%,0,0);
+      -moz-transform: translate3d(0%,0,0);
+      -webkit-transform: translate3d(0%,0,0);
+      overflow: hidden;
+      //-webkit-backface-visibility: hidden;
+      //-webkit-transform-style: preserve-3d;
+      //-webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
+      //box-shadow: 0 0 20px rgba(0,0,0,.2);
+      position: relative;
+      &.animate{
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+      }
+      li{
+        float: left;
+        overflow: hidden;
+        //-webkit-transform-style: preserve-3d;
+        //-webkit-transform: translate3d(0,0,0);
+      }
+    }
+  }
+
+  > ul{ //the drawer
+    margin: 0;
+    display: block;
+    width: 99999px; //will be calculated by js to fit number of items in it
+    position:relative; //so that el.offsetLeft works
+    margin-left:0;
+    //clearfix
+    &:after{
+      content:"";
+      display:table;
+      clear:both;
+    }
+    > li{
+      display: block;
+      list-style: none;
+      float: left;
+      img{
+        display: block;
+      }
+      //hack to fix rendering issue in iOS with touch scrolling
+      //*{
+        //-webkit-transform: translate3d(0,0,0);
+      //}
+    }
+  }
+}
+
+.pwrSldr_container{
+  opacity:0;
+  position: relative;
+  @include transition(opacity 0.2s ease);
+  clear: both;
+}
+
+.pwrSldr_wrapper{
+  overflow: hidden;
+  li{
+    float:left;
+  }
+  *::-webkit-scrollbar-thumb{
+    background:none;
+  }
+  *::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+/* pwrSldr default control buttons. this is for arrows but could be used for other things */
+.pwrSldr_btn{
+  $w: 90;
+  display: block;
+  position: absolute;
+  top: 0;bottom: 0;margin: auto 0;
+  width: $w + px;
+  height: 83px;
+  outline: 0;
+  z-index:199;
+  opacity: 0;
+  @include transition(opacity 200ms ease);
+  .pwrSldr_not_scrollable &, &._hidden {
+    opacity: 0 !important;//Non-touch namespace has more specificity, hence important
+    height: 0;width:0;overflow: hidden;//Remove button accessibility while allowing transitions
+  }
+
+  &:active {
+    outline: 0 none;
+  }
+  &:focus {
+    -moz-outline-style: none;
+    outline: 0 none;
+  }
+  .device_HASTOUCH &{
+    display: none;
+  }
+  //show if in pwrSldr_scrollable on non-touch devices
+  .pwrSldr_scrollable &{
+    .device_NOT_HASTOUCH &{
+      //display: block;
+      opacity: 1;
+    }
+  }
+
+  span{
+    display: block;
+    height: inherit;
+    -webkit-transform: translateZ(0px);//Webkit FIX for SVG Gradient Sprite- AUG 2014
+
+    &:before{
+      content: "";
+      background-image: asset-url('marvel/icon_sprite.svg');
+      display: block;
+      height: inherit;
+    }
+  }
+
+  &._prev{
+    left: ($w * -1) + px;
+    span {
+      &:before{
+        //@include icons_sprite( -400 -0, 1.8 );
+      }
+    }
+  }
+  &._next{
+    right: ($w * -1) + px;
+    span{
+      &:before{
+        //@include icons_sprite( -400 -53, 1.8 );
+      }
+    }
+  }
+
+  ///////////////
+  //RESPONSIVE //
+  ///////////////
+  @include media(0, $l-grid - 1){
+    $w: 54;
+    width: $w + px;
+    height: 58px;
+    &._prev{
+      left: ($w * -1) + px;
+      span {
+        &:before{
+          //@include icons_sprite( -400 -0, 1.4 );
+        }
+      }
+    }
+    &._next{
+      right: ($w * -1) + px;
+      span{
+        &:before{
+         // @include icons_sprite( -400 -53, 1.4 );
+        }
+      }
+    }
+  }
+}

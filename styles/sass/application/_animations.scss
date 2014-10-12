@@ -27,3 +27,19 @@
     92% {right: -50px;}
     100% {right: -600px;}
 }
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes scaleIn {
+    0%   {-webkit-transform: translateX(-100%) scale(.3);}
+    100% {-webkit-transform: translateX(0) scale(1);}
+}
+
+@-moz-keyframes scaleIn {
+    0%   {-moz-transform: translateX(-100%) scale(.3);}
+    100% {-moz-transform: translateX(0) scale(1);}
+}
+
+@keyframes scaleIn {
+    0%   {transform: translateX(-100%) scale(.3);}
+    100% {transform: translateX(0) scale(1);}
+}

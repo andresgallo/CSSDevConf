@@ -1,4 +1,7 @@
 
+.notresponsive section {
+  min-width: 1024px; }
+
 .notresponsive {
   background: url("http://img.lum.dolimg.com/v1/images/CHRNAV-bg_de4b5a2c.jpeg") repeat; }
 
@@ -17,11 +20,6 @@ display: block !important; }
 .notresponsive ._mediaOvLg-inblock {
 display: inline-block !important; }
 
-.notresponsive section:before {
-      font-size: 30px;
-      margin-left: -200px;
-      content: url("../images/bg_lg.png") " LARGE_VIEW"; }
-
 .notresponsive section {
     padding: 80px; }
 
@@ -38,6 +36,14 @@ content: '';
           right: 0;
           bottom: 0;
           background: rgba(255, 0, 0, 0.5); }
+      .notresponsive nav li .icon-marvel-logo {
+font-size: 70px;
+        line-height: 100%;
+        box-shadow: 0px 3px 0px #c40d15;
+        display: inline-block;
+        overflow: hidden;
+        zoom: 1;
+        height: 68px; }
 
 .notresponsive #fist {
   width: 340px;
@@ -49,3 +55,8 @@ content: '';
   -webkit-animation: fist 5s;
   /* Chrome, Safari, Opera */
   animation: fist 5s; }
+
+.notresponsive .css_dev_conf:before {
+      font-size: 30px;
+      margin-left: -200px;
+      content: url("../images/bg_lg.png") " LARGE_VIEW.css_dev_conf"; }

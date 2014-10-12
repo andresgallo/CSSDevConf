@@ -2,30 +2,6 @@ section {
 	max-width: $l-grid + px;
 	margin: 0 auto;
 	box-shadow: 0 1px 3px #000;
-	min-height: 300px;
-	background: rgba(255,255,255,.1);
-
-	&:before {
-		float: left;
-		color: $marvelRed;
-		vertical-align: top;
-		@include media(0, $s-grid - 1){
-			content: url('../images/bg_sm.jpeg') " SMALL_VIEW";
-		}
-		@include media($s-grid, $m-grid - 1){
-			content: url('../images/bg_sm.jpeg') " MEDIUM_VIEW";
-		}
-		@include media($m-grid){
-			font-size: 30px;
-			margin-left: -200px;
-			content: url('../images/bg_lg.png') " LARGE_VIEW";
-		}
-	}
-	&:after{
-		content: '';
-		clear: both;
-		display: block;
-	}
 
 	@include media(0, $s-grid - 1) {
 		padding: $s-margin + px;
@@ -35,6 +11,12 @@ section {
 	}
 	@include media($l-grid) {
 		padding: $l-margin + px;
+	}
+
+	&:after{
+		content: '';
+		clear: both;
+		display: block;
 	}
 }
 
