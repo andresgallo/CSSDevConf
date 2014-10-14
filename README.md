@@ -12,7 +12,7 @@ This is the codebase we were looking at as we were going through how we have str
 ## File Structure ##
 *	In there you can see a standard file structure. which we use as its a best practice which works
 *	In a real life scenario however it would be a further enhancement to use a build script tool such as grunt/gulp to further enhance the work flow while making less http requests.
-*	SASS Structure- (Found inside styles folder)
+*	SASS Structure- (https://github.com/andresgallo/CSSDevConf/tree/master/styles/sass)
 	*	Separates Code into namespaces. The code in each file only pertains to the features of that file/module.   
 *	Global stuff is separated from module specific stuff. Helpers are also separated into their own folder
 
